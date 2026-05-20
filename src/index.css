@@ -206,3 +206,42 @@ body {
   pointer-events: none;
   z-index: 0;
 }
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  /* Hide interactive/nav elements */
+  nav, .no-print, #video, button, a[download] { display: none !important; }
+
+  body {
+    background: white !important;
+    color: #0d0d0d !important;
+    font-size: 11pt;
+  }
+
+  section {
+    background: white !important;
+    border-color: #ccc !important;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3 {
+    color: #0d0d0d !important;
+    page-break-after: avoid;
+  }
+
+  .text-\[\#c8392b\] { color: #c8392b !important; }
+  .text-\[\#6b6560\] { color: #555 !important; }
+
+  /* Show URLs for external links */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666;
+  }
+
+  /* Force page breaks between major sections */
+  #digcomp, #diritti, #agenda, #educare { page-break-before: always; }
+
+  /* Remove animations */
+  .reveal, .reveal-left { opacity: 1 !important; animation: none !important; }
+}

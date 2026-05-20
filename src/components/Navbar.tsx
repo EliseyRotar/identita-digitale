@@ -6,10 +6,13 @@ const links = [
   { href: '#diritti', label: 'Diritti & Doveri' },
   { href: '#agenda', label: 'Agenda 2030' },
   { href: '#educare', label: 'Educare' },
+  { href: '#quiz', label: 'Quiz' },
+  { href: '#glossario', label: 'Glossario' },
+  { href: '#risorse', label: 'Risorse' },
   { href: '#video', label: 'Video' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ onSearchOpen }: { onSearchOpen: () => void }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
@@ -76,7 +79,7 @@ export default function Navbar() {
             </span>
           </button>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-5">
             {links.map((l) => (
               <button
                 key={l.href}
@@ -93,6 +96,18 @@ export default function Navbar() {
                 )}
               </button>
             ))}
+            {/* Search button */}
+            <button
+              onClick={onSearchOpen}
+              className="text-[#6b6560] hover:text-[#0d0d0d] transition-colors ml-2"
+              aria-label="Cerca"
+              title="Cerca (Ctrl+K)"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.2"/>
+                <path d="M11 11l3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+              </svg>
+            </button>
           </div>
 
           <button
