@@ -6,6 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Deploy](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen?logo=github)](https://eliseyrotar.github.io/identita-digitale/)
 [![License: MIT](https://img.shields.io/badge/Licenza-MIT-green)](LICENSE)
 
 ---
@@ -25,7 +26,9 @@
 
 ## 🖥️ Demo
 
-> Clona il repo, installa le dipendenze e avvia il server di sviluppo (vedi [Avvio rapido](#-avvio-rapido)).
+🌐 **[eliseyrotar.github.io/identita-digitale](https://eliseyrotar.github.io/identita-digitale/)**
+
+> Oppure clona il repo e avvia in locale (vedi [Avvio rapido](#-avvio-rapido)).
 
 ---
 
