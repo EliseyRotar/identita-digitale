@@ -12,9 +12,11 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('')
   const [progress, setProgress] = useState(0)
   const progressRef = useRef<HTMLDivElement>(null)
 
+  // Progress bar + active section tracking
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20)
@@ -31,6 +33,21 @@ export default function Navbar() {
     }
   }, [progress])
 
+  // IntersectionObserver for active nav link
+  useEffect(() => {
+    const sections = links.map(l => document.querySelector(l.href)).filter(Boolean) as Element[]
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) setActive('#' + e.target.id)
+        })
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    )
+    sections.forEach(s => obs.observe(s))
+    return () => obs.disconnect()
+  }, [])
+
   const go = (href: string) => {
     setOpen(false)
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
@@ -41,15 +58,12 @@ export default function Navbar() {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-[#e8e0d0]/95 backdrop-blur-sm border-b border-[#c4bba8]' : 'bg-transparent'
       }`}>
-        {/* Progress bar */}
         <div
           ref={progressRef}
           className="progress-bar absolute bottom-0 left-0 right-0"
           style={{ transform: 'scaleX(0)' }}
         />
-
         <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-          {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-3 group"
@@ -62,20 +76,25 @@ export default function Navbar() {
             </span>
           </button>
 
-          {/* Desktop links */}
           <div className="hidden md:flex items-center gap-6">
             {links.map((l) => (
               <button
                 key={l.href}
                 onClick={() => go(l.href)}
-                className="text-xs font-medium tracking-widest uppercase text-[#6b6560] hover:text-[#0d0d0d] transition-colors hover-line"
+                className={`text-xs font-medium tracking-widest uppercase transition-colors relative ${
+                  active === l.href
+                    ? 'text-[#c8392b]'
+                    : 'text-[#6b6560] hover:text-[#0d0d0d]'
+                }`}
               >
                 {l.label}
+                {active === l.href && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-px bg-[#c8392b]" />
+                )}
               </button>
             ))}
           </div>
 
-          {/* Mobile toggle */}
           <button
             className="md:hidden flex flex-col gap-1.5 p-1"
             onClick={() => setOpen(!open)}
@@ -88,7 +107,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <div className={`fixed inset-0 z-40 bg-[#0d0d0d] flex flex-col justify-center px-10 transition-all duration-500 ${
         open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
@@ -102,7 +120,9 @@ export default function Navbar() {
             className="text-left py-4 border-b border-[#2a2a2a] group"
             style={{ transitionDelay: `${i * 50}ms` }}
           >
-            <span className="font-serif text-3xl text-[#e8e0d0] group-hover:text-[#c8392b] transition-colors">
+            <span className={`font-serif text-3xl transition-colors ${
+              active === l.href ? 'text-[#c8392b]' : 'text-[#e8e0d0] group-hover:text-[#c8392b]'
+            }`}>
               {l.label}
             </span>
           </button>

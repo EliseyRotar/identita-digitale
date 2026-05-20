@@ -155,21 +155,25 @@ export default function DigComp() {
       {/* Levels */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16">
         <p className="section-label text-[#6b6560] mb-10 reveal">8 Livelli di Padronanza</p>
-        <div className="grid grid-cols-4 md:grid-cols-8 gap-0">
+        <div className="space-y-3">
           {levels.map((l, i) => (
             <div key={l.num}
-              className={`reveal p-4 text-center border-[#2a2a2a] ${i < 7 ? 'border-r' : ''}`}
-              style={{ animationDelay: `${i * 0.05}s` }}>
-              <div className="font-serif font-black text-4xl text-[#e8e0d0] mb-2">{l.num}</div>
-              <div className="text-xs font-medium text-[#e8e0d0]">{l.label}</div>
-              <div className="text-xs text-[#6b6560] mt-0.5">{l.sub}</div>
+              className={`reveal flex items-center gap-6 group`}
+              style={{ animationDelay: `${i * 0.06}s` }}>
+              <div className="w-6 shrink-0 font-serif font-black text-2xl text-[#2a2a2a] group-hover:text-[#c8392b] transition-colors">{l.num}</div>
+              <div
+                className="h-10 flex items-center px-4 transition-all duration-500 group-hover:bg-[#c8392b]"
+                style={{
+                  width: `${20 + i * 10}%`,
+                  background: `rgba(200,57,43,${0.08 + i * 0.1})`,
+                  minWidth: '120px',
+                }}
+              >
+                <span className="text-xs font-medium text-[#e8e0d0] tracking-wide">{l.label}</span>
+                <span className="text-xs text-[#6b6560] ml-3 group-hover:text-[#e8e0d0] transition-colors">— {l.sub}</span>
+              </div>
             </div>
           ))}
-        </div>
-        <div className="mt-6 flex items-center gap-4">
-          <div className="h-px flex-1 bg-gradient-to-r from-[#2a2a2a] via-[#c8392b] to-[#2a2a2a]" />
-          <span className="text-xs text-[#6b6560] tracking-widest uppercase">Progressione della competenza</span>
-          <div className="h-px flex-1 bg-gradient-to-r from-[#2a2a2a] via-[#c8392b] to-[#2a2a2a]" />
         </div>
       </div>
     </section>

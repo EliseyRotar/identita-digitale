@@ -1,8 +1,44 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+
+const stats = [
+  { value: 4.9, suffix: 'B', label: 'Utenti Internet nel mondo', decimals: 1 },
+  { value: 21, suffix: '', label: 'Competenze DigComp 2.2', decimals: 0 },
+  { value: 17, suffix: '', label: 'Obiettivi Agenda 2030 ONU', decimals: 0 },
+]
+
+function useCountUp(target: number, decimals: number, trigger: boolean, duration = 1800) {
+  const [val, setVal] = useState(0)
+  useEffect(() => {
+    if (!trigger) return
+    let start: number | null = null
+    const step = (ts: number) => {
+      if (!start) start = ts
+      const progress = Math.min((ts - start) / duration, 1)
+      // ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setVal(parseFloat((eased * target).toFixed(decimals)))
+      if (progress < 1) requestAnimationFrame(step)
+    }
+    requestAnimationFrame(step)
+  }, [trigger, target, decimals, duration])
+  return val
+}
+
+function StatItem({ value, suffix, label, decimals, trigger }: typeof stats[0] & { trigger: boolean }) {
+  const count = useCountUp(value, decimals, trigger)
+  return (
+    <div className="font-serif font-black text-5xl text-[#0d0d0d] leading-none tabular-nums">
+      {decimals > 0 ? count.toFixed(decimals) : Math.floor(count)}{suffix}
+      <div className="num-label mt-2 font-sans">{label}</div>
+    </div>
+  )
+}
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null)
+  const statsRef = useRef<HTMLDivElement>(null)
+  const [statsVisible, setStatsVisible] = useState(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -25,19 +61,27 @@ export default function Hero() {
     return () => ctx.revert()
   }, [])
 
+  // Trigger count-up when stats column enters view
+  useEffect(() => {
+    const el = statsRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStatsVisible(true) },
+      { threshold: 0.3 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
   return (
     <section ref={containerRef} className="relative min-h-screen bg-[#e8e0d0] flex flex-col pt-14">
-      {/* Top bar */}
       <div className="border-b border-[#c4bba8] px-6 py-3 flex items-center justify-between">
         <span className="hero-meta section-label">Cittadinanza Digitale · 2026</span>
         <span className="hero-meta num-label">Vol. I — Essere Cittadini nel Digitale</span>
       </div>
 
-      {/* Main content */}
       <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-16 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-
-          {/* Left: big title */}
           <div className="lg:col-span-8">
             <div className="overflow-hidden mb-2">
               <p className="hero-line section-label mb-4">La tua presenza nel mondo digitale</p>
@@ -61,22 +105,15 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: stats column */}
-          <div className="lg:col-span-4 flex flex-col gap-0 border-l border-[#c4bba8] pl-8">
-            {[
-              { num: '4.9B', label: 'Utenti Internet nel mondo' },
-              { num: '21', label: 'Competenze DigComp 2.2' },
-              { num: '17', label: 'Obiettivi Agenda 2030 ONU' },
-            ].map(({ num, label }, i) => (
+          <div ref={statsRef} className="lg:col-span-4 flex flex-col gap-0 border-l border-[#c4bba8] pl-8">
+            {stats.map(({ value, suffix, label, decimals }, i) => (
               <div key={label} className={`hero-meta py-6 ${i > 0 ? 'border-t border-[#c4bba8]' : ''}`}>
-                <div className="font-serif font-black text-5xl text-[#0d0d0d] leading-none">{num}</div>
-                <div className="num-label mt-2">{label}</div>
+                <StatItem value={value} suffix={suffix} label={label} decimals={decimals} trigger={statsVisible} />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Bottom row */}
         <div className="mt-16 pt-6 border-t border-[#c4bba8] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex gap-4">
             <button

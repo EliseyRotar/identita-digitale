@@ -77,10 +77,10 @@ export default function Agenda2030() {
             <div
               key={g.num}
               className="flex-1 min-w-0 aspect-square flex flex-col items-center justify-center p-2 cursor-default group transition-all duration-300 hover:flex-[2]"
-              style={{ backgroundColor: g.color + '18', borderRight: `1px solid ${g.color}30` }}
+              style={{ backgroundColor: g.color + '30', borderRight: `1px solid ${g.color}50` }}
             >
-              <div className="font-serif font-black text-2xl md:text-3xl" style={{ color: g.color }}>{g.num}</div>
-              <div className="text-[8px] md:text-[10px] text-[#6b6560] text-center leading-tight mt-1 hidden md:block">{g.title}</div>
+              <div className="font-serif font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-300" style={{ color: g.color }}>{g.num}</div>
+              <div className="text-[8px] md:text-[10px] text-[#6b6560] text-center leading-tight mt-1 hidden md:block group-hover:text-[#e8e0d0] transition-colors">{g.title}</div>
             </div>
           ))}
         </div>
@@ -111,16 +111,25 @@ export default function Agenda2030() {
       {/* Timeline */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16">
         <p className="section-label text-[#6b6560] mb-10 reveal">Tappe Chiave dell'Agenda Digitale Italiana</p>
-        <div className="space-y-0">
-          {timeline.map(({ year, event }, i) => (
-            <div key={year}
-              className="reveal flex items-center gap-8 py-5 border-b border-[#2a2a2a] last:border-0 group cursor-default"
-              style={{ animationDelay: `${i * 0.08}s` }}>
-              <div className="font-serif font-black text-3xl text-[#2a2a2a] w-20 shrink-0 group-hover:text-[#c8392b] transition-colors">{year}</div>
-              <div className="w-px h-8 bg-[#2a2a2a] shrink-0" />
-              <div className="text-[#e8e0d0] text-sm leading-relaxed">{event}</div>
-            </div>
-          ))}
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-[4.5rem] top-0 bottom-0 w-px bg-[#2a2a2a] hidden md:block" />
+          <div className="space-y-0">
+            {timeline.map(({ year, event }, i) => (
+              <div key={year}
+                className="reveal flex items-center gap-8 py-6 group cursor-default"
+                style={{ animationDelay: `${i * 0.08}s` }}>
+                <div className="font-serif font-black text-3xl text-[#2a2a2a] w-20 shrink-0 group-hover:text-[#c8392b] transition-colors duration-300 relative z-10">
+                  {year}
+                  {/* Dot on line */}
+                  <span className="absolute -right-[1.15rem] top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#2a2a2a] group-hover:bg-[#c8392b] transition-colors hidden md:block" />
+                </div>
+                <div className="text-[#e8e0d0] text-sm leading-relaxed group-hover:text-[#e8e0d0] pl-4 border-l border-[#2a2a2a] group-hover:border-[#c8392b] transition-colors py-2">
+                  {event}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
