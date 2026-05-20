@@ -1,5 +1,4 @@
 import './index.css'
-import ParticleBackground from './components/ParticleBackground'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import CosE from './components/CosE'
@@ -12,22 +11,15 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-dark">
-      <ParticleBackground />
+    <div className="bg-[#f5f0e8]">
       <Navbar />
-      <main className="relative z-10">
+      <main>
         <Hero />
-        <div className="section-divider" />
         <CosE />
-        <div className="section-divider" />
         <DigComp />
-        <div className="section-divider" />
         <DirittieDeveri />
-        <div className="section-divider" />
         <Agenda2030 />
-        <div className="section-divider" />
         <Educare />
-        <div className="section-divider" />
         <VideoResources />
       </main>
       <Footer />

@@ -1,6 +1,3 @@
-import { motion } from 'framer-motion'
-import { Fingerprint, ExternalLink, Heart } from 'lucide-react'
-
 const sections = [
   {
     title: 'Argomenti',
@@ -16,10 +13,10 @@ const sections = [
   {
     title: 'Risorse Esterne',
     links: [
-      { label: 'SPID - spid.gov.it', href: 'https://www.spid.gov.it', external: true },
-      { label: 'DigComp - EU', href: 'https://joint-research-centre.ec.europa.eu/digcomp', external: true },
-      { label: 'GDPR - Garante Privacy', href: 'https://www.garanteprivacy.it', external: true },
-      { label: 'Agenda 2030 - ONU', href: 'https://unric.org/it/agenda-2030/', external: true },
+      { label: 'SPID — spid.gov.it', href: 'https://www.spid.gov.it', external: true },
+      { label: 'DigComp — EU', href: 'https://joint-research-centre.ec.europa.eu/digcomp', external: true },
+      { label: 'GDPR — Garante Privacy', href: 'https://www.garanteprivacy.it', external: true },
+      { label: 'Agenda 2030 — ONU', href: 'https://unric.org/it/agenda-2030/', external: true },
       { label: 'AGID', href: 'https://www.agid.gov.it', external: true },
     ],
   },
@@ -31,39 +28,38 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative border-t border-white/5 pt-16 pb-8 px-6">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-500/30 to-transparent" />
-      
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <footer className="bg-[#f5f0e8] border-t border-[#d4cfc6]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+        {/* Top */}
+        <div className="py-16 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-[#d4cfc6]">
           {/* Brand */}
           <div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 mb-4 cursor-pointer"
+            <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-3 mb-6 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center">
-                <Fingerprint size={20} className="text-white" />
+              <div className="w-8 h-8 bg-[#0d0d0d] flex items-center justify-center">
+                <span className="text-[#f5f0e8] text-xs font-bold">ID</span>
               </div>
-              <span className="font-bold text-lg gradient-text">Identità Digitale</span>
-            </motion.div>
-            <p className="text-slate-500 text-sm leading-relaxed mb-4">
-              Una risorsa educativa sulla cittadinanza digitale, le competenze DigComp 2.2 
-              e il futuro dell'identità nell'era digitale.
+              <span className="font-serif font-bold text-[#0d0d0d] group-hover:text-[#c8392b] transition-colors">
+                Identità Digitale
+              </span>
+            </button>
+            <p className="text-[#6b6560] text-sm leading-relaxed mb-6 max-w-xs">
+              Una risorsa educativa sulla cittadinanza digitale, le competenze DigComp 2.2 e il futuro dell'identità nell'era digitale.
             </p>
-            <div className="flex gap-3">
-              {['🇮🇹', '🇪🇺', '🌐'].map((flag) => (
-                <span key={flag} className="text-xl">{flag}</span>
-              ))}
+            <div className="flex gap-2 text-lg">
+              <span>🇮🇹</span>
+              <span>🇪🇺</span>
+              <span>🌐</span>
             </div>
           </div>
 
           {/* Links */}
           {sections.map((s) => (
             <div key={s.title}>
-              <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">{s.title}</h4>
-              <ul className="space-y-2">
+              <h4 className="num-label mb-6">{s.title}</h4>
+              <ul className="space-y-3">
                 {s.links.map((l) => (
                   <li key={l.label}>
                     {'external' in l && l.external ? (
@@ -71,15 +67,14 @@ export default function Footer() {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-slate-500 hover:text-sky-400 text-sm transition-colors flex items-center gap-1"
+                        className="text-sm text-[#6b6560] hover:text-[#0d0d0d] transition-colors hover-line"
                       >
                         {l.label}
-                        <ExternalLink size={10} />
                       </a>
                     ) : (
                       <button
                         onClick={() => scrollTo(l.href)}
-                        className="text-slate-500 hover:text-sky-400 text-sm transition-colors text-left"
+                        className="text-sm text-[#6b6560] hover:text-[#0d0d0d] transition-colors hover-line text-left"
                       >
                         {l.label}
                       </button>
@@ -92,12 +87,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 text-sm">
+        <div className="py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <p className="text-xs text-[#6b6560]">
             © 2026 Identità Digitale · Contenuti basati su DigComp 2.2, GDPR e Agenda 2030
           </p>
-          <p className="text-slate-600 text-sm flex items-center gap-1">
-            Fatto con <Heart size={12} className="text-rose-500" /> per la cittadinanza digitale italiana
+          <p className="text-xs text-[#6b6560]">
+            Fatto per la cittadinanza digitale italiana
           </p>
         </div>
       </div>

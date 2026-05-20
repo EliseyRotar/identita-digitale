@@ -1,13 +1,12 @@
-import { motion } from 'framer-motion'
-import { Scale, CheckCircle, AlertTriangle, FileText, Lock, Eye, Trash2, Download } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 
 const diritti = [
-  { icon: Eye, title: 'Diritto di Accesso', desc: 'Puoi richiedere quali dati personali vengono trattati da un\'organizzazione.' },
-  { icon: FileText, title: 'Diritto di Rettifica', desc: 'Puoi correggere dati inesatti o incompleti che ti riguardano.' },
-  { icon: Trash2, title: 'Diritto all\'Oblio', desc: 'Puoi richiedere la cancellazione dei tuoi dati personali (GDPR Art. 17).' },
-  { icon: Download, title: 'Portabilità dei Dati', desc: 'Puoi ricevere i tuoi dati in formato strutturato e trasferirli ad altri servizi.' },
-  { icon: Lock, title: 'Diritto di Opposizione', desc: 'Puoi opporti al trattamento dei tuoi dati per finalità di marketing diretto.' },
-  { icon: CheckCircle, title: 'Consenso Informato', desc: 'Il trattamento dei dati richiede il tuo consenso esplicito, libero e revocabile.' },
+  { title: 'Diritto di Accesso', desc: "Puoi richiedere quali dati personali vengono trattati da un'organizzazione." },
+  { title: 'Diritto di Rettifica', desc: 'Puoi correggere dati inesatti o incompleti che ti riguardano.' },
+  { title: "Diritto all'Oblio", desc: 'Puoi richiedere la cancellazione dei tuoi dati personali (GDPR Art. 17).' },
+  { title: 'Portabilità dei Dati', desc: 'Puoi ricevere i tuoi dati in formato strutturato e trasferirli ad altri servizi.' },
+  { title: 'Diritto di Opposizione', desc: 'Puoi opporti al trattamento dei tuoi dati per finalità di marketing diretto.' },
+  { title: 'Consenso Informato', desc: 'Il trattamento dei dati richiede il tuo consenso esplicito, libero e revocabile.' },
 ]
 
 const doveri = [
@@ -20,152 +19,102 @@ const doveri = [
 ]
 
 const normative = [
-  { label: 'GDPR', full: 'Regolamento Generale sulla Protezione dei Dati', year: '2018', color: 'border-sky-500/40 bg-sky-500/10' },
-  { label: 'CAD', full: 'Codice dell\'Amministrazione Digitale', year: '2005', color: 'border-indigo-500/40 bg-indigo-500/10' },
-  { label: 'SPID', full: 'Sistema Pubblico di Identità Digitale', year: '2014', color: 'border-emerald-500/40 bg-emerald-500/10' },
-  { label: 'eIDAS', full: 'Identificazione Elettronica e Servizi Fiduciari', year: '2014', color: 'border-amber-500/40 bg-amber-500/10' },
+  { label: 'GDPR', full: 'Regolamento Generale sulla Protezione dei Dati', year: '2018' },
+  { label: 'CAD', full: "Codice dell'Amministrazione Digitale", year: '2005' },
+  { label: 'SPID', full: 'Sistema Pubblico di Identità Digitale', year: '2014' },
+  { label: 'eIDAS', full: 'Identificazione Elettronica e Servizi Fiduciari', year: '2014' },
 ]
 
 export default function DirittieDeveri() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const els = sectionRef.current?.querySelectorAll('.reveal, .reveal-left')
+    if (!els) return
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }),
+      { threshold: 0.1 }
+    )
+    els.forEach(el => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
+
   return (
-    <section id="diritti" className="relative py-32 px-6">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
-        >
-          <span className="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-4 block">
-            Cittadinanza Digitale
-          </span>
-          <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
-            Diritti & <span className="gradient-text">Doveri</span>
-          </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Il cittadino digitale ha diritti fondamentali garantiti dalla legge e doveri 
-            etici verso la comunità online.
-          </p>
-        </motion.div>
+    <section id="diritti" ref={sectionRef} className="bg-[#f5f0e8] border-t border-[#d4cfc6]">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#d4cfc6]">
+        <p className="section-label mb-4 reveal">Cittadinanza Digitale</p>
+        <h2 className="font-serif font-black leading-tight text-[#0d0d0d] reveal delay-1"
+          style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
+          Diritti &<br /><span className="text-[#c8392b]">Doveri</span>
+        </h2>
+      </div>
 
-        {/* Scale icon */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, type: 'spring' }}
-          className="flex justify-center mb-16"
-        >
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center glow">
-            <Scale size={36} className="text-white" />
-          </div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+      {/* Two columns */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 border-b border-[#d4cfc6]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
           {/* Diritti */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex items-center gap-3 mb-8"
-            >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center">
-                <CheckCircle size={20} className="text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">I Tuoi Diritti</h3>
-            </motion.div>
-            <div className="space-y-4">
+          <div className="py-12 lg:border-r border-[#d4cfc6] lg:pr-12">
+            <div className="flex items-center gap-4 mb-8 reveal">
+              <div className="w-2 h-2 bg-[#0d0d0d]" />
+              <h3 className="font-serif font-bold text-2xl text-[#0d0d0d]">I Tuoi Diritti</h3>
+            </div>
+            <div className="space-y-0">
               {diritti.map((d, i) => (
-                <motion.div
-                  key={d.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  whileHover={{ x: 6 }}
-                  className="glass rounded-xl p-4 flex items-start gap-4 border border-sky-500/10 hover:border-sky-500/30 transition-all"
-                >
-                  <div className="w-9 h-9 rounded-lg bg-sky-500/20 flex items-center justify-center flex-shrink-0">
-                    <d.icon size={16} className="text-sky-400" />
+                <div key={d.title}
+                  className="reveal py-5 border-b border-[#d4cfc6] last:border-0 group cursor-default"
+                  style={{ animationDelay: `${i * 0.07}s` }}>
+                  <div className="flex items-start gap-4">
+                    <span className="num-label w-6 shrink-0 mt-0.5">{String(i + 1).padStart(2, '0')}</span>
+                    <div>
+                      <div className="font-medium text-[#0d0d0d] mb-1 group-hover:text-[#c8392b] transition-colors">{d.title}</div>
+                      <div className="text-sm text-[#6b6560] leading-relaxed">{d.desc}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold text-white text-sm mb-1">{d.title}</div>
-                    <div className="text-slate-400 text-xs leading-relaxed">{d.desc}</div>
-                  </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
 
           {/* Doveri */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex items-center gap-3 mb-8"
-            >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-                <AlertTriangle size={20} className="text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">I Tuoi Doveri</h3>
-            </motion.div>
-            <div className="space-y-4">
+          <div className="py-12 lg:pl-12">
+            <div className="flex items-center gap-4 mb-8 reveal">
+              <div className="w-2 h-2 bg-[#c8392b]" />
+              <h3 className="font-serif font-bold text-2xl text-[#0d0d0d]">I Tuoi Doveri</h3>
+            </div>
+            <div className="space-y-0">
               {doveri.map((d, i) => (
-                <motion.div
-                  key={d.title}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  whileHover={{ x: -6 }}
-                  className="glass rounded-xl p-4 flex items-start gap-4 border border-amber-500/10 hover:border-amber-500/30 transition-all"
-                >
-                  <div className="w-9 h-9 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0 text-amber-400 font-bold text-sm">
-                    {i + 1}
+                <div key={d.title}
+                  className="reveal py-5 border-b border-[#d4cfc6] last:border-0 group cursor-default"
+                  style={{ animationDelay: `${i * 0.07}s` }}>
+                  <div className="flex items-start gap-4">
+                    <span className="num-label w-6 shrink-0 mt-0.5">{String(i + 1).padStart(2, '0')}</span>
+                    <div>
+                      <div className="font-medium text-[#0d0d0d] mb-1 group-hover:text-[#c8392b] transition-colors">{d.title}</div>
+                      <div className="text-sm text-[#6b6560] leading-relaxed">{d.desc}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold text-white text-sm mb-1">{d.title}</div>
-                    <div className="text-slate-400 text-xs leading-relaxed">{d.desc}</div>
-                  </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Normative */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <h3 className="text-2xl font-bold text-white text-center mb-8">
-            Quadro Normativo di Riferimento
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {normative.map((n, i) => (
-              <motion.div
-                key={n.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ scale: 1.05, y: -4 }}
-                className={`glass rounded-2xl p-6 text-center border ${n.color} cursor-default`}
-              >
-                <div className="text-3xl font-black text-white mb-2">{n.label}</div>
-                <div className="text-xs text-slate-400 leading-relaxed mb-3">{n.full}</div>
-                <div className="text-xs font-semibold text-slate-500">{n.year}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+      {/* Normative */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16">
+        <p className="section-label mb-10 reveal">Quadro Normativo di Riferimento</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+          {normative.map(({ label, full, year }, i) => (
+            <div key={label}
+              className={`reveal p-8 card-hover cursor-default ${i < 3 ? 'border-r border-[#d4cfc6]' : ''}`}
+              style={{ animationDelay: `${i * 0.1}s` }}>
+              <div className="font-serif font-black text-4xl text-[#0d0d0d] mb-3">{label}</div>
+              <div className="text-xs text-[#6b6560] leading-relaxed mb-4">{full}</div>
+              <div className="text-xs font-medium text-[#c8392b]">{year}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

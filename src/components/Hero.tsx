@@ -1,114 +1,106 @@
 import { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
-import { ArrowDown, Shield, Globe, Users } from 'lucide-react'
-
-const stats = [
-  { value: '4.9B', label: 'Utenti Internet', icon: Globe },
-  { value: '193', label: 'Paesi ONU', icon: Users },
-  { value: '5', label: 'Aree DigComp', icon: Shield },
-]
 
 export default function Hero() {
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const subtitleRef = useRef<HTMLParagraphElement>(null)
+  const containerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const tl = gsap.timeline({ delay: 0.3 })
-    tl.from(titleRef.current, { opacity: 0, y: 60, duration: 1, ease: 'power3.out' })
-      .from(subtitleRef.current, { opacity: 0, y: 30, duration: 0.8, ease: 'power2.out' }, '-=0.5')
+    const ctx = gsap.context(() => {
+      gsap.from('.hero-line', {
+        y: '110%',
+        duration: 1,
+        stagger: 0.12,
+        ease: 'power4.out',
+        delay: 0.2,
+      })
+      gsap.from('.hero-meta', {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power3.out',
+        delay: 0.9,
+      })
+    }, containerRef)
+    return () => ctx.revert()
   }, [])
 
   return (
-    <section className="relative min-h-screen hero-bg flex items-center justify-center overflow-hidden pt-20">
-      {/* Decorative rings */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[600px] rounded-full border border-sky-500/10 animate-rotate-slow" />
-        <div className="absolute w-[400px] h-[400px] rounded-full border border-indigo-500/10" style={{ animation: 'rotate-slow 15s linear infinite reverse' }} />
-        <div className="absolute w-[200px] h-[200px] rounded-full border border-amber-500/10 animate-rotate-slow" />
+    <section ref={containerRef} className="relative min-h-screen bg-[#f5f0e8] flex flex-col pt-14">
+      {/* Top bar */}
+      <div className="border-b border-[#d4cfc6] px-6 py-3 flex items-center justify-between">
+        <span className="hero-meta section-label">Cittadinanza Digitale · 2026</span>
+        <span className="hero-meta num-label">Vol. I — Identità nel Digitale</span>
       </div>
 
-      {/* Central glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-indigo-500/8 rounded-full blur-3xl pointer-events-none" />
+      {/* Main content */}
+      <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-16 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-sky-500/20 text-sky-400 text-sm font-medium mb-8"
-        >
-          <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-          Cittadinanza Digitale del XXI Secolo
-        </motion.div>
-
-        <h1 ref={titleRef} className="text-6xl md:text-8xl font-black mb-6 leading-tight">
-          <span className="text-white">La Tua</span>
-          <br />
-          <span className="shimmer-text">Identità</span>
-          <br />
-          <span className="text-white">Digitale</span>
-        </h1>
-
-        <p ref={subtitleRef} className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-          Scopri chi sei nel mondo digitale. Competenze, diritti, doveri e il futuro 
-          della cittadinanza nell'era dell'intelligenza artificiale.
-        </p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-20"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(14,165,233,0.4)' }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.querySelector('#cos-e')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 bg-gradient-to-r from-sky-500 to-indigo-600 rounded-2xl font-semibold text-white text-lg transition-all"
-          >
-            Esplora il Tema
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.querySelector('#video')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 glass border border-white/10 rounded-2xl font-semibold text-slate-300 text-lg hover:border-sky-500/40 transition-all"
-          >
-            Guarda i Video
-          </motion.button>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3, duration: 0.6 }}
-          className="grid grid-cols-3 gap-6 max-w-2xl mx-auto"
-        >
-          {stats.map(({ value, label, icon: Icon }) => (
-            <div key={label} className="glass rounded-2xl p-4 text-center">
-              <Icon size={20} className="text-sky-400 mx-auto mb-2" />
-              <div className="text-2xl font-black gradient-text">{value}</div>
-              <div className="text-xs text-slate-500 mt-1">{label}</div>
+          {/* Left: big title */}
+          <div className="lg:col-span-8">
+            <div className="overflow-hidden mb-2">
+              <p className="hero-line section-label mb-4">La tua presenza nel mondo digitale</p>
             </div>
-          ))}
-        </motion.div>
-      </div>
+            <div className="overflow-hidden">
+              <h1 className="hero-line font-serif font-black leading-[0.9] text-[#0d0d0d]"
+                style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}>
+                Identità
+              </h1>
+            </div>
+            <div className="overflow-hidden">
+              <h1 className="hero-line font-serif font-black leading-[0.9] text-[#c8392b]"
+                style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}>
+                Digitale
+              </h1>
+            </div>
+            <div className="overflow-hidden mt-6">
+              <p className="hero-line text-[#6b6560] text-lg md:text-xl max-w-xl leading-relaxed font-light">
+                Competenze, diritti, doveri e il futuro della cittadinanza nell'era dell'intelligenza artificiale.
+              </p>
+            </div>
+          </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500"
-      >
-        <span className="text-xs uppercase tracking-widest">Scorri</span>
-        <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-          <ArrowDown size={18} />
-        </motion.div>
-      </motion.div>
+          {/* Right: stats column */}
+          <div className="lg:col-span-4 flex flex-col gap-0 border-l border-[#d4cfc6] pl-8">
+            {[
+              { num: '4.9B', label: 'Utenti Internet nel mondo' },
+              { num: '21', label: 'Competenze DigComp 2.2' },
+              { num: '17', label: 'Obiettivi Agenda 2030 ONU' },
+            ].map(({ num, label }, i) => (
+              <div key={label} className={`hero-meta py-6 ${i > 0 ? 'border-t border-[#d4cfc6]' : ''}`}>
+                <div className="font-serif font-black text-5xl text-[#0d0d0d] leading-none">{num}</div>
+                <div className="num-label mt-2">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom row */}
+        <div className="mt-16 pt-6 border-t border-[#d4cfc6] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="flex gap-4">
+            <button
+              onClick={() => document.querySelector('#cos-e')?.scrollIntoView({ behavior: 'smooth' })}
+              className="hero-meta px-6 py-3 bg-[#0d0d0d] text-[#f5f0e8] text-xs font-medium tracking-widest uppercase hover:bg-[#c8392b] transition-colors duration-300"
+            >
+              Esplora il tema
+            </button>
+            <button
+              onClick={() => document.querySelector('#video')?.scrollIntoView({ behavior: 'smooth' })}
+              className="hero-meta px-6 py-3 border border-[#0d0d0d] text-[#0d0d0d] text-xs font-medium tracking-widest uppercase hover:bg-[#0d0d0d] hover:text-[#f5f0e8] transition-colors duration-300"
+            >
+              Guarda i video
+            </button>
+          </div>
+          <div className="hero-meta flex items-center gap-2 text-[#6b6560]">
+            <span className="text-xs tracking-widest uppercase">Scorri</span>
+            <div className="w-8 h-px bg-[#6b6560]" />
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M6 1v10M1 6l5 5 5-5" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

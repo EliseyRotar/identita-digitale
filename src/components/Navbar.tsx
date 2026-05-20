@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Fingerprint } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
 
 const links = [
   { href: '#cos-e', label: "Cos'è" },
@@ -14,90 +12,102 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const [active, setActive] = useState('')
+  const [progress, setProgress] = useState(0)
+  const progressRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', onScroll)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20)
+      const total = document.body.scrollHeight - window.innerHeight
+      setProgress(total > 0 ? window.scrollY / total : 0)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const handleClick = (href: string) => {
-    setActive(href)
+  useEffect(() => {
+    if (progressRef.current) {
+      progressRef.current.style.transform = `scaleX(${progress})`
+    }
+  }, [progress])
+
+  const go = (href: string) => {
     setOpen(false)
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'nav-blur' : ''}`}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <motion.div
-          className="flex items-center gap-2 cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center glow">
-            <Fingerprint size={20} className="text-white" />
+    <>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-[#f5f0e8]/95 backdrop-blur-sm border-b border-[#d4cfc6]' : 'bg-transparent'
+      }`}>
+        {/* Progress bar */}
+        <div
+          ref={progressRef}
+          className="progress-bar absolute bottom-0 left-0 right-0"
+          style={{ transform: 'scaleX(0)' }}
+        />
+
+        <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+          {/* Logo */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-3 group"
+          >
+            <div className="w-6 h-6 bg-[#c8392b] flex items-center justify-center">
+              <span className="text-[#f5f0e8] text-xs font-bold leading-none">ID</span>
+            </div>
+            <span className="font-serif font-bold text-sm tracking-wide text-[#0d0d0d] group-hover:text-[#c8392b] transition-colors">
+              Identità Digitale
+            </span>
+          </button>
+
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-6">
+            {links.map((l) => (
+              <button
+                key={l.href}
+                onClick={() => go(l.href)}
+                className="text-xs font-medium tracking-widest uppercase text-[#6b6560] hover:text-[#0d0d0d] transition-colors hover-line"
+              >
+                {l.label}
+              </button>
+            ))}
           </div>
-          <span className="font-bold text-lg gradient-text">Identità Digitale</span>
-        </motion.div>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-1">
-          {links.map((l) => (
-            <motion.button
-              key={l.href}
-              onClick={() => handleClick(l.href)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                active === l.href
-                  ? 'bg-sky-500/20 text-sky-400 border border-sky-500/30'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              {l.label}
-            </motion.button>
-          ))}
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden flex flex-col gap-1.5 p-1"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            <span className={`block w-5 h-px bg-[#0d0d0d] transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-5 h-px bg-[#0d0d0d] transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
+            <span className={`block w-5 h-px bg-[#0d0d0d] transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+          </button>
         </div>
-
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-slate-300 hover:text-white"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+      </nav>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden nav-blur border-t border-white/5"
+      <div className={`fixed inset-0 z-40 bg-[#0d0d0d] flex flex-col justify-center px-10 transition-all duration-500 ${
+        open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}>
+        <div className="border-b border-[#2a2a2a] pb-6 mb-8">
+          <span className="section-label" style={{ color: '#6b6560' }}>Navigazione</span>
+        </div>
+        {links.map((l, i) => (
+          <button
+            key={l.href}
+            onClick={() => go(l.href)}
+            className="text-left py-4 border-b border-[#2a2a2a] group"
+            style={{ transitionDelay: `${i * 50}ms` }}
           >
-            <div className="px-6 py-4 flex flex-col gap-2">
-              {links.map((l) => (
-                <button
-                  key={l.href}
-                  onClick={() => handleClick(l.href)}
-                  className="text-left px-4 py-3 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all"
-                >
-                  {l.label}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+            <span className="font-serif text-3xl text-[#f5f0e8] group-hover:text-[#c8392b] transition-colors">
+              {l.label}
+            </span>
+          </button>
+        ))}
+      </div>
+    </>
   )
 }
