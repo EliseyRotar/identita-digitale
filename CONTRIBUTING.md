@@ -1,6 +1,6 @@
 # 🤝 Come Contribuire
 
-Grazie per l'interesse nel contribuire a **Identità Digitale**! Ogni contributo è benvenuto, che si tratti di correzioni, nuovi contenuti o miglioramenti tecnici.
+Grazie per l'interesse nel contribuire a **Cittadinanza Digitale**! Ogni contributo è benvenuto, che si tratti di correzioni, nuovi contenuti o miglioramenti tecnici.
 
 ## Tipi di Contributo
 
@@ -15,8 +15,8 @@ Grazie per l'interesse nel contribuire a **Identità Digitale**! Ogni contributo
 
 ```bash
 # 1. Fai un fork e clona
-git clone https://github.com/TUO-USERNAME/identita-digitale.git
-cd identita-digitale
+git clone https://github.com/TUO-USERNAME/cittadinanza-digitale.git
+cd cittadinanza-digitale
 
 # 2. Installa le dipendenze
 npm install

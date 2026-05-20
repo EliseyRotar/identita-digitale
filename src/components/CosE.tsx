@@ -39,12 +39,12 @@ export default function CosE() {
             <p className="section-label mb-4 reveal">Fondamenti</p>
             <h2 className="font-serif font-black leading-tight text-[#0d0d0d] reveal delay-1"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
-              Cos'è l'Identità<br />Digitale?
+              Cos'è la<br />Cittadinanza Digitale?
             </h2>
           </div>
           <div className="lg:col-span-5 reveal delay-2">
             <p className="text-[#6b6560] leading-relaxed text-base">
-              L'identità digitale è la rappresentazione di una persona nel mondo online. È composta da dati, credenziali e comportamenti che ci definiscono nell'ecosistema digitale.
+              L'identità digitale è la rappresentazione di una persona nel mondo online. È composta da dati, credenziali e comportamenti che ci definiscono nell'ecosistema digitale — il fondamento della cittadinanza digitale.
             </p>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function CosE() {
 
       {/* Layers */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16">
-        <p className="section-label mb-10 reveal">I Livelli dell'Identità Digitale</p>
+        <p className="section-label mb-10 reveal">I Livelli dell'Identità nel Digitale</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
           {layers.map(({ label, sub }, i) => (
             <div key={label} className={`reveal p-8 ${i < 3 ? 'border-r border-[#c4bba8]' : ''}`}

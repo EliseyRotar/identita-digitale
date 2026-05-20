@@ -1,32 +1,32 @@
-# 🔐 Identità Digitale
+# 🌐 Cittadinanza Digitale
 
-> Una web app educativa interattiva sulla cittadinanza digitale, le competenze DigComp 2.2 e il futuro dell'identità nell'era digitale.
+> Una web app educativa interattiva sulla cittadinanza digitale, le competenze DigComp 2.2, i diritti GDPR e gli obiettivi dell'Agenda 2030.
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-[![Deploy](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen?logo=github)](https://eliseyrotar.github.io/identita-digitale/)
+[![Deploy](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen?logo=github)](https://eliseyrotar.github.io/cittadinanza-digitale/)
 [![License: MIT](https://img.shields.io/badge/Licenza-MIT-green)](LICENSE)
 
 ---
 
 ## 📖 Cos'è questo progetto
 
-**Identità Digitale** è un sito web educativo a pagina singola (SPA) pensato per studenti, insegnanti e cittadini che vogliono capire cosa significa esistere nel mondo digitale. Copre:
+**Cittadinanza Digitale** è un sito web educativo a pagina singola (SPA) pensato per studenti, insegnanti e cittadini che vogliono capire cosa significa esistere e partecipare nel mondo digitale. Copre:
 
 - Cosa si intende per **identità digitale** e come si costruisce online
 - Il framework europeo **DigComp 2.2** — 5 aree, 21 competenze, 8 livelli
 - **Diritti e doveri** del cittadino digitale (GDPR, SPID, eIDAS, CAD)
-- Il legame tra identità digitale e **Agenda 2030** dell'ONU
-- Come **educare** all'identità digitale per fascia d'età
+- Il legame tra cittadinanza digitale e **Agenda 2030** dell'ONU
+- Come **educare** alla cittadinanza digitale per fascia d'età
 - Una raccolta di **video risorse** selezionati
 
 ---
 
 ## 🖥️ Demo
 
-🌐 **[eliseyrotar.github.io/identita-digitale](https://eliseyrotar.github.io/identita-digitale/)**
+🌐 **[eliseyrotar.github.io/cittadinanza-digitale](https://eliseyrotar.github.io/cittadinanza-digitale/)**
 
 > Oppure clona il repo e avvia in locale (vedi [Avvio rapido](#-avvio-rapido)).
 
@@ -35,18 +35,17 @@
 ## 🗂️ Struttura del Progetto
 
 ```
-identita-digitale/
+cittadinanza-digitale/
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.tsx           # Navigazione sticky con scroll attivo
+│   │   ├── Navbar.tsx           # Navigazione sticky con progress bar di lettura
 │   │   ├── Hero.tsx             # Sezione hero con animazioni GSAP
-│   │   ├── CosE.tsx             # Cos'è l'identità digitale
+│   │   ├── CosE.tsx             # Cos'è la cittadinanza digitale
 │   │   ├── DigComp.tsx          # Framework DigComp 2.2 interattivo
 │   │   ├── DirittieDeveri.tsx   # Diritti GDPR e doveri del cittadino
 │   │   ├── Agenda2030.tsx       # 17 SDG e connessione al digitale
 │   │   ├── Educare.tsx          # Percorsi educativi per fascia d'età
 │   │   ├── VideoResources.tsx   # Video YouTube integrati
-│   │   ├── ParticleBackground.tsx # Sfondo animato con particelle
 │   │   └── Footer.tsx           # Footer con link e risorse esterne
 │   ├── App.tsx                  # Componente root
 │   ├── main.tsx                 # Entry point
@@ -75,8 +74,8 @@ identita-digitale/
 
 ```bash
 # Clona il repository
-git clone https://github.com/EliseyRotar/identita-digitale.git
-cd identita-digitale
+git clone https://github.com/EliseyRotar/cittadinanza-digitale.git
+cd cittadinanza-digitale
 
 # Installa le dipendenze
 npm install
@@ -98,17 +97,17 @@ npm run preview
 
 ## 🛠️ Stack Tecnologico
 
-| Tecnologia                                      | Versione | Utilizzo                   |
-| ----------------------------------------------- | -------- | -------------------------- |
-| [React](https://react.dev)                      | 19       | UI framework               |
-| [TypeScript](https://www.typescriptlang.org)    | 6        | Type safety                |
-| [Vite](https://vite.dev)                        | 8        | Build tool & dev server    |
-| [Tailwind CSS](https://tailwindcss.com)         | 4        | Utility-first styling      |
-| [Framer Motion](https://www.framer.com/motion/) | 12       | Animazioni UI              |
-| [GSAP](https://gsap.com)                        | 3        | Animazioni avanzate (hero) |
-| [Lucide React](https://lucide.dev)              | latest   | Icone SVG                  |
-| [React Router](https://reactrouter.com)         | 7        | Routing                    |
-| [Swiper](https://swiperjs.com)                  | 12       | Caroselli                  |
+| Tecnologia                                                             | Versione | Utilizzo                |
+| ---------------------------------------------------------------------- | -------- | ----------------------- |
+| [React](https://react.dev)                                             | 19       | UI framework            |
+| [TypeScript](https://www.typescriptlang.org)                           | 6        | Type safety             |
+| [Vite](https://vite.dev)                                               | 8        | Build tool & dev server |
+| [Tailwind CSS](https://tailwindcss.com)                                | 4        | Utility-first styling   |
+| [Framer Motion](https://www.framer.com/motion/)                        | 12       | Animazioni UI           |
+| [GSAP](https://gsap.com)                                               | 3        | Animazioni hero         |
+| [Lucide React](https://lucide.dev)                                     | latest   | Icone SVG               |
+| [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) | —        | Font serif display      |
+| [DM Sans](https://fonts.google.com/specimen/DM+Sans)                   | —        | Font sans-serif corpo   |
 
 ---
 

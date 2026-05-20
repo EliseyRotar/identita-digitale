@@ -30,7 +30,7 @@ export default function Hero() {
       {/* Top bar */}
       <div className="border-b border-[#c4bba8] px-6 py-3 flex items-center justify-between">
         <span className="hero-meta section-label">Cittadinanza Digitale · 2026</span>
-        <span className="hero-meta num-label">Vol. I — Identità nel Digitale</span>
+        <span className="hero-meta num-label">Vol. I — Essere Cittadini nel Digitale</span>
       </div>
 
       {/* Main content */}
@@ -45,7 +45,7 @@ export default function Hero() {
             <div className="overflow-hidden">
               <h1 className="hero-line font-serif font-black leading-[0.9] text-[#0d0d0d]"
                 style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}>
-                Identità
+                Cittadinanza
               </h1>
             </div>
             <div className="overflow-hidden">

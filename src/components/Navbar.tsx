@@ -55,10 +55,10 @@ export default function Navbar() {
             className="flex items-center gap-3 group"
           >
             <div className="w-6 h-6 bg-[#c8392b] flex items-center justify-center">
-              <span className="text-[#e8e0d0] text-xs font-bold leading-none">ID</span>
+              <span className="text-[#e8e0d0] text-xs font-bold leading-none">CD</span>
             </div>
             <span className="font-serif font-bold text-sm tracking-wide text-[#0d0d0d] group-hover:text-[#c8392b] transition-colors">
-              Identità Digitale
+              Cittadinanza Digitale
             </span>
           </button>
 

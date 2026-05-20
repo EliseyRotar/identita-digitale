@@ -30,7 +30,7 @@ const digitalLinks = [
 
 const timeline = [
   { year: '2005', event: "Codice dell'Amministrazione Digitale (CAD)" },
-  { year: '2014', event: 'Lancio SPID — Sistema Pubblico Identità Digitale' },
+  { year: '2014', event: 'Lancio SPID — Sistema Pubblico di Identità Digitale' },
   { year: '2018', event: 'GDPR in vigore in tutta l\'UE' },
   { year: '2022', event: 'DigComp 2.2 pubblicato dalla Commissione Europea' },
   { year: '2030', event: 'Obiettivo: 80% cittadini con competenze digitali di base' },
@@ -88,7 +88,7 @@ export default function Agenda2030() {
 
       {/* Digital links */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#2a2a2a]">
-        <p className="section-label text-[#6b6560] mb-10 reveal">Identità Digitale & Obiettivi SDG</p>
+        <p className="section-label text-[#6b6560] mb-10 reveal">Cittadinanza Digitale & Obiettivi SDG</p>
         <div className="space-y-0">
           {digitalLinks.map((link, i) => (
             <div key={link.goal}

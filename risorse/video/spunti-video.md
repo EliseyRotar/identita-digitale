@@ -1,6 +1,6 @@
-# 🎬 Risorse Video — Identità Digitale
+# 🎬 Risorse Video — Cittadinanza Digitale
 
-Una selezione di video curati per approfondire i temi dell'identità digitale, della cittadinanza digitale e delle competenze DigComp.
+Una selezione di video curati per approfondire i temi della cittadinanza digitale, dell'identità online e delle competenze DigComp.
 
 ## Video Consigliati
 

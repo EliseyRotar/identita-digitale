@@ -2,7 +2,7 @@ const sections = [
   {
     title: 'Argomenti',
     links: [
-      { label: "Cos'è l'Identità Digitale", href: '#cos-e' },
+      { label: "Cos'è la Cittadinanza Digitale", href: '#cos-e' },
       { label: 'DigComp 2.2', href: '#digcomp' },
       { label: 'Diritti & Doveri', href: '#diritti' },
       { label: 'Agenda 2030', href: '#agenda' },
@@ -39,14 +39,14 @@ export default function Footer() {
               className="flex items-center gap-3 mb-6 group"
             >
               <div className="w-8 h-8 bg-[#0d0d0d] flex items-center justify-center">
-                <span className="text-[#e8e0d0] text-xs font-bold">ID</span>
+                <span className="text-[#e8e0d0] text-xs font-bold">CD</span>
               </div>
               <span className="font-serif font-bold text-[#0d0d0d] group-hover:text-[#c8392b] transition-colors">
-                Identità Digitale
+                Cittadinanza Digitale
               </span>
             </button>
             <p className="text-[#6b6560] text-sm leading-relaxed mb-6 max-w-xs">
-              Una risorsa educativa sulla cittadinanza digitale, le competenze DigComp 2.2 e il futuro dell'identità nell'era digitale.
+              Una risorsa educativa sulla cittadinanza digitale, le competenze DigComp 2.2, i diritti GDPR e gli obiettivi dell'Agenda 2030.
             </p>
             <div className="flex gap-2 text-lg">
               <span>🇮🇹</span>
@@ -89,7 +89,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
           <p className="text-xs text-[#6b6560]">
-            © 2026 Identità Digitale · Contenuti basati su DigComp 2.2, GDPR e Agenda 2030
+            © 2026 Cittadinanza Digitale · Contenuti basati su DigComp 2.2, GDPR e Agenda 2030
           </p>
           <p className="text-xs text-[#6b6560]">
             Fatto per la cittadinanza digitale italiana

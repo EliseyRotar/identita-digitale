@@ -15,7 +15,7 @@ assignees: ""
 
 ## Argomento Principale
 
-- [ ] Identità Digitale (introduzione)
+- [ ] Cittadinanza Digitale (introduzione)
 - [ ] Privacy & GDPR
 - [ ] Cittadinanza Digitale
 - [ ] DigComp / Competenze Digitali

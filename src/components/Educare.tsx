@@ -42,7 +42,7 @@ export default function Educare() {
         <p className="section-label mb-4 reveal">Formazione & Consapevolezza</p>
         <h2 className="font-serif font-black leading-tight text-[#0d0d0d] reveal delay-1"
           style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
-          Educare all'Identità<br /><span className="text-[#c8392b]">Digitale</span>
+          Educare alla<br /><span className="text-[#c8392b]">Cittadinanza Digitale</span>
         </h2>
       </div>
 
