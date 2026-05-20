@@ -44,13 +44,13 @@ export default function Hero() {
             </div>
             <div className="overflow-hidden">
               <h1 className="hero-line font-serif font-black leading-[0.9] text-[#0d0d0d]"
-                style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}>
+                style={{ fontSize: 'clamp(2.8rem, 7vw, 6.5rem)' }}>
                 Cittadinanza
               </h1>
             </div>
             <div className="overflow-hidden">
               <h1 className="hero-line font-serif font-black leading-[0.9] text-[#c8392b]"
-                style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}>
+                style={{ fontSize: 'clamp(2.8rem, 7vw, 6.5rem)' }}>
                 Digitale
               </h1>
             </div>
