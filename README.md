@@ -140,6 +140,12 @@ Distribuito sotto licenza **MIT**. Vedi [LICENSE](LICENSE) per i dettagli.
 
 ---
 
+## 👥 Crediti
+
+Progetto realizzato da **[eli6](https://github.com/EliseyRotar)** & **Giulio Verde**.
+
+---
+
 <p align="center">
   Fatto con ❤️ per la cittadinanza digitale italiana 🇮🇹
 </p>

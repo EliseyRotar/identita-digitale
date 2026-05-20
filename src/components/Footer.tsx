@@ -87,12 +87,29 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+        <div className="py-6 border-t border-[#c4bba8] flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
           <p className="text-xs text-[#6b6560]">
             © 2026 Cittadinanza Digitale · Contenuti basati su DigComp 2.2, GDPR e Agenda 2030
           </p>
           <p className="text-xs text-[#6b6560]">
-            Fatto per la cittadinanza digitale italiana
+            Realizzato da{' '}
+            <a
+              href="https://github.com/EliseyRotar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#0d0d0d] hover:text-[#c8392b] transition-colors hover-line"
+            >
+              eli6
+            </a>
+            {' '}& Giulio Verde ·{' '}
+            <a
+              href="https://github.com/EliseyRotar/cittadinanza-digitale"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#0d0d0d] hover:text-[#c8392b] transition-colors hover-line"
+            >
+              GitHub →
+            </a>
           </p>
         </div>
       </div>
