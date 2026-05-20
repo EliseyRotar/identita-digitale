@@ -24,11 +24,9 @@
 
 ---
 
-## 🖥️ Demo
+## 🖥️ Sito Web
 
 🌐 **[eliseyrotar.github.io/cittadinanza-digitale](https://eliseyrotar.github.io/cittadinanza-digitale/)**
-
-> Oppure clona il repo e avvia in locale (vedi [Avvio rapido](#-avvio-rapido)).
 
 ---
 
@@ -63,39 +61,7 @@ cittadinanza-digitale/
 
 ---
 
-## 🚀 Avvio Rapido
-
-### Prerequisiti
-
-- [Node.js](https://nodejs.org) ≥ 18
-- npm ≥ 9
-
-### Installazione
-
-```bash
-# Clona il repository
-git clone https://github.com/EliseyRotar/cittadinanza-digitale.git
-cd cittadinanza-digitale
-
-# Installa le dipendenze
-npm install
-
-# Avvia il server di sviluppo
-npm run dev
-```
-
-Apri [http://localhost:5173](http://localhost:5173) nel browser.
-
-### Build per la produzione
-
-```bash
-npm run build
-npm run preview
-```
-
----
-
-## 🛠️ Stack Tecnologico
+## �️ Stack Tecnologico
 
 | Tecnologia                                                             | Versione | Utilizzo                |
 | ---------------------------------------------------------------------- | -------- | ----------------------- |
