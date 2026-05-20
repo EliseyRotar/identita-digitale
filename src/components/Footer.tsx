@@ -28,10 +28,10 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#f5f0e8] border-t border-[#d4cfc6]">
+    <footer className="bg-[#dfd6c4] border-t border-[#c4bba8]">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         {/* Top */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-[#d4cfc6]">
+        <div className="py-16 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-[#c4bba8]">
           {/* Brand */}
           <div>
             <button
@@ -39,7 +39,7 @@ export default function Footer() {
               className="flex items-center gap-3 mb-6 group"
             >
               <div className="w-8 h-8 bg-[#0d0d0d] flex items-center justify-center">
-                <span className="text-[#f5f0e8] text-xs font-bold">ID</span>
+                <span className="text-[#e8e0d0] text-xs font-bold">ID</span>
               </div>
               <span className="font-serif font-bold text-[#0d0d0d] group-hover:text-[#c8392b] transition-colors">
                 Identità Digitale

@@ -27,7 +27,7 @@ export default function VideoResources() {
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#2a2a2a]">
         <p className="section-label mb-4 reveal">Risorse Multimediali</p>
-        <h2 className="font-serif font-black leading-tight text-[#f5f0e8] reveal delay-1"
+        <h2 className="font-serif font-black leading-tight text-[#e8e0d0] reveal delay-1"
           style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
           Video <span className="text-[#c8392b]">Risorse</span>
         </h2>
@@ -49,7 +49,7 @@ export default function VideoResources() {
           </div>
           <div className="lg:col-span-4 pt-2">
             <span className="section-label mb-3 block">{videos[0].tag}</span>
-            <h3 className="font-serif font-bold text-2xl text-[#f5f0e8] mb-4">{videos[0].title}</h3>
+            <h3 className="font-serif font-bold text-2xl text-[#e8e0d0] mb-4">{videos[0].title}</h3>
             <p className="text-[#6b6560] text-sm leading-relaxed">{videos[0].desc}</p>
             <a
               href={`https://www.youtube.com/watch?v=${videos[0].id}`}
@@ -82,7 +82,7 @@ export default function VideoResources() {
             </div>
             <div className="md:col-span-7 pt-1">
               <span className="section-label mb-2 block">{video.tag}</span>
-              <h3 className="font-serif font-bold text-xl text-[#f5f0e8] mb-3 group-hover:text-[#c8392b] transition-colors">{video.title}</h3>
+              <h3 className="font-serif font-bold text-xl text-[#e8e0d0] mb-3 group-hover:text-[#c8392b] transition-colors">{video.title}</h3>
               <p className="text-[#6b6560] text-sm leading-relaxed mb-4">{video.desc}</p>
               <a
                 href={`https://www.youtube.com/watch?v=${video.id}`}
@@ -107,7 +107,7 @@ export default function VideoResources() {
             href="https://www.youtube.com/results?search_query=identit%C3%A0+digitale+cittadinanza"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border border-[#f5f0e8] text-[#f5f0e8] text-xs font-medium tracking-widest uppercase hover:bg-[#f5f0e8] hover:text-[#0d0d0d] transition-colors duration-300 shrink-0"
+            className="px-6 py-3 border border-[#e8e0d0] text-[#e8e0d0] text-xs font-medium tracking-widest uppercase hover:bg-[#e8e0d0] hover:text-[#0d0d0d] transition-colors duration-300 shrink-0"
           >
             Esplora su YouTube →
           </a>

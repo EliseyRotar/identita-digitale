@@ -10,12 +10,13 @@
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
   --color-ink: #0d0d0d;
-  --color-paper: #f5f0e8;
-  --color-paper-dark: #ede8dc;
+  --color-paper: #e8e0d0;
+  --color-paper-mid: #dfd6c4;
+  --color-paper-dark: #d4c9b4;
   --color-accent: #c8392b;
   --color-accent-dark: #a02d22;
   --color-muted: #6b6560;
-  --color-rule: #d4cfc6;
+  --color-rule: #c4bba8;
 }
 
 *, *::before, *::after {
@@ -27,7 +28,7 @@ html {
 }
 
 body {
-  background-color: #f5f0e8;
+  background-color: #e8e0d0;
   color: #0d0d0d;
   font-family: 'DM Sans', system-ui, sans-serif;
   overflow-x: hidden;
@@ -36,14 +37,14 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #f5f0e8; }
+::-webkit-scrollbar-track { background: #e8e0d0; }
 ::-webkit-scrollbar-thumb { background: #0d0d0d; }
 
 /* Typography */
 .font-serif { font-family: 'Playfair Display', Georgia, serif; }
 
 /* Rule lines */
-.rule { border-top: 1px solid #d4cfc6; }
+.rule { border-top: 1px solid #c4bba8; }
 .rule-dark { border-top: 1px solid #0d0d0d; }
 .rule-accent { border-top: 2px solid #c8392b; }
 
@@ -105,7 +106,7 @@ body {
 /* Accent block */
 .accent-block {
   background: #c8392b;
-  color: #f5f0e8;
+  color: #e8e0d0;
 }
 
 /* Number style */
@@ -134,11 +135,16 @@ body {
   font-size: clamp(5rem, 15vw, 12rem);
   font-weight: 900;
   line-height: 0.85;
-  color: #ede8dc;
+  color: #d4c9b4;
 }
 
+/* Paper bg sections */
+.bg-paper { background: #e8e0d0; }
+.bg-paper-mid { background: #dfd6c4; }
+.bg-paper-dark { background: #d4c9b4; }
+
 /* Ink bg sections */
-.bg-ink { background: #0d0d0d; color: #f5f0e8; }
+.bg-ink { background: #0d0d0d; color: #e8e0d0; }
 .bg-ink .rule { border-color: #2a2a2a; }
 
 /* Card hover */

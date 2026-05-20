@@ -39,7 +39,7 @@ export default function Navbar() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#f5f0e8]/95 backdrop-blur-sm border-b border-[#d4cfc6]' : 'bg-transparent'
+        scrolled ? 'bg-[#e8e0d0]/95 backdrop-blur-sm border-b border-[#c4bba8]' : 'bg-transparent'
       }`}>
         {/* Progress bar */}
         <div
@@ -55,7 +55,7 @@ export default function Navbar() {
             className="flex items-center gap-3 group"
           >
             <div className="w-6 h-6 bg-[#c8392b] flex items-center justify-center">
-              <span className="text-[#f5f0e8] text-xs font-bold leading-none">ID</span>
+              <span className="text-[#e8e0d0] text-xs font-bold leading-none">ID</span>
             </div>
             <span className="font-serif font-bold text-sm tracking-wide text-[#0d0d0d] group-hover:text-[#c8392b] transition-colors">
               Identità Digitale
@@ -102,7 +102,7 @@ export default function Navbar() {
             className="text-left py-4 border-b border-[#2a2a2a] group"
             style={{ transitionDelay: `${i * 50}ms` }}
           >
-            <span className="font-serif text-3xl text-[#f5f0e8] group-hover:text-[#c8392b] transition-colors">
+            <span className="font-serif text-3xl text-[#e8e0d0] group-hover:text-[#c8392b] transition-colors">
               {l.label}
             </span>
           </button>

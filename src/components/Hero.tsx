@@ -26,9 +26,9 @@ export default function Hero() {
   }, [])
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-[#f5f0e8] flex flex-col pt-14">
+    <section ref={containerRef} className="relative min-h-screen bg-[#e8e0d0] flex flex-col pt-14">
       {/* Top bar */}
-      <div className="border-b border-[#d4cfc6] px-6 py-3 flex items-center justify-between">
+      <div className="border-b border-[#c4bba8] px-6 py-3 flex items-center justify-between">
         <span className="hero-meta section-label">Cittadinanza Digitale · 2026</span>
         <span className="hero-meta num-label">Vol. I — Identità nel Digitale</span>
       </div>
@@ -62,13 +62,13 @@ export default function Hero() {
           </div>
 
           {/* Right: stats column */}
-          <div className="lg:col-span-4 flex flex-col gap-0 border-l border-[#d4cfc6] pl-8">
+          <div className="lg:col-span-4 flex flex-col gap-0 border-l border-[#c4bba8] pl-8">
             {[
               { num: '4.9B', label: 'Utenti Internet nel mondo' },
               { num: '21', label: 'Competenze DigComp 2.2' },
               { num: '17', label: 'Obiettivi Agenda 2030 ONU' },
             ].map(({ num, label }, i) => (
-              <div key={label} className={`hero-meta py-6 ${i > 0 ? 'border-t border-[#d4cfc6]' : ''}`}>
+              <div key={label} className={`hero-meta py-6 ${i > 0 ? 'border-t border-[#c4bba8]' : ''}`}>
                 <div className="font-serif font-black text-5xl text-[#0d0d0d] leading-none">{num}</div>
                 <div className="num-label mt-2">{label}</div>
               </div>
@@ -77,17 +77,17 @@ export default function Hero() {
         </div>
 
         {/* Bottom row */}
-        <div className="mt-16 pt-6 border-t border-[#d4cfc6] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="mt-16 pt-6 border-t border-[#c4bba8] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex gap-4">
             <button
               onClick={() => document.querySelector('#cos-e')?.scrollIntoView({ behavior: 'smooth' })}
-              className="hero-meta px-6 py-3 bg-[#0d0d0d] text-[#f5f0e8] text-xs font-medium tracking-widest uppercase hover:bg-[#c8392b] transition-colors duration-300"
+              className="hero-meta px-6 py-3 bg-[#0d0d0d] text-[#e8e0d0] text-xs font-medium tracking-widest uppercase hover:bg-[#c8392b] transition-colors duration-300"
             >
               Esplora il tema
             </button>
             <button
               onClick={() => document.querySelector('#video')?.scrollIntoView({ behavior: 'smooth' })}
-              className="hero-meta px-6 py-3 border border-[#0d0d0d] text-[#0d0d0d] text-xs font-medium tracking-widest uppercase hover:bg-[#0d0d0d] hover:text-[#f5f0e8] transition-colors duration-300"
+              className="hero-meta px-6 py-3 border border-[#0d0d0d] text-[#0d0d0d] text-xs font-medium tracking-widest uppercase hover:bg-[#0d0d0d] hover:text-[#e8e0d0] transition-colors duration-300"
             >
               Guarda i video
             </button>

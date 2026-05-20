@@ -36,9 +36,9 @@ export default function Educare() {
   }, [])
 
   return (
-    <section id="educare" ref={sectionRef} className="bg-[#f5f0e8] border-t border-[#d4cfc6]">
+    <section id="educare" ref={sectionRef} className="bg-[#d4c9b4] border-t border-[#c4bba8]">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#d4cfc6]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#c4bba8]">
         <p className="section-label mb-4 reveal">Formazione & Consapevolezza</p>
         <h2 className="font-serif font-black leading-tight text-[#0d0d0d] reveal delay-1"
           style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
@@ -47,13 +47,13 @@ export default function Educare() {
       </div>
 
       {/* 4 Pillars */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 border-b border-[#d4cfc6]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 border-b border-[#c4bba8]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
           {pillars.map(({ num, title, desc, tags }, i) => (
             <div key={num}
               className={`reveal p-10 card-hover cursor-default
-                ${i % 2 === 0 ? 'border-r border-[#d4cfc6]' : ''}
-                ${i < 2 ? 'border-b border-[#d4cfc6]' : ''}
+                ${i % 2 === 0 ? 'border-r border-[#c4bba8]' : ''}
+                ${i < 2 ? 'border-b border-[#c4bba8]' : ''}
               `}
               style={{ animationDelay: `${i * 0.1}s` }}>
               <div className="num-label mb-6">{num}</div>
@@ -61,7 +61,7 @@ export default function Educare() {
               <p className="text-[#6b6560] text-sm leading-relaxed mb-6">{desc}</p>
               <div className="flex flex-wrap gap-2">
                 {tags.map(tag => (
-                  <span key={tag} className="text-xs px-3 py-1 border border-[#d4cfc6] text-[#6b6560]">{tag}</span>
+                  <span key={tag} className="text-xs px-3 py-1 border border-[#c4bba8] text-[#6b6560]">{tag}</span>
                 ))}
               </div>
             </div>
@@ -70,14 +70,14 @@ export default function Educare() {
       </div>
 
       {/* Age groups */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#d4cfc6]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#c4bba8]">
         <p className="section-label mb-10 reveal">Percorsi per Fascia d'Età</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
           {ageGroups.map(({ age, title, activities }, i) => (
             <div key={age}
-              className={`reveal p-8 card-hover cursor-default ${i < 3 ? 'border-r border-[#d4cfc6]' : ''}`}
+              className={`reveal p-8 card-hover cursor-default ${i < 3 ? 'border-r border-[#c4bba8]' : ''}`}
               style={{ animationDelay: `${i * 0.1}s` }}>
-              <div className="font-serif font-black text-4xl text-[#ede8dc] mb-2 select-none">{age}</div>
+              <div className="font-serif font-black text-4xl text-[#d4c9b4] mb-2 select-none">{age}</div>
               <div className="w-6 h-px bg-[#c8392b] mb-4" />
               <h4 className="font-medium text-[#0d0d0d] mb-4 text-sm">{title}</h4>
               <ul className="space-y-2">
@@ -99,7 +99,7 @@ export default function Educare() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
           {resources.map(({ name, org }, i) => (
             <div key={name}
-              className={`reveal p-8 card-hover cursor-default ${i < 3 ? 'border-r border-[#d4cfc6]' : ''}`}
+              className={`reveal p-8 card-hover cursor-default ${i < 3 ? 'border-r border-[#c4bba8]' : ''}`}
               style={{ animationDelay: `${i * 0.1}s` }}>
               <div className="w-4 h-4 bg-[#0d0d0d] mb-6" />
               <div className="font-medium text-[#0d0d0d] text-sm mb-2">{name}</div>

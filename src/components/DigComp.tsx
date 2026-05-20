@@ -92,7 +92,7 @@ export default function DigComp() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-7">
             <p className="section-label mb-4 reveal">Framework Europeo</p>
-            <h2 className="font-serif font-black leading-tight text-[#f5f0e8] reveal delay-1"
+            <h2 className="font-serif font-black leading-tight text-[#e8e0d0] reveal delay-1"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
               DigComp <span className="text-[#c8392b]">2.2</span>
             </h2>
@@ -100,9 +100,9 @@ export default function DigComp() {
           <div className="lg:col-span-5 reveal delay-2">
             <p className="text-[#6b6560] leading-relaxed text-base">
               Il Quadro Europeo delle Competenze Digitali per i Cittadini definisce{' '}
-              <span className="text-[#f5f0e8]">5 aree</span> e{' '}
-              <span className="text-[#f5f0e8]">21 competenze</span> su{' '}
-              <span className="text-[#f5f0e8]">8 livelli di padronanza</span>.
+              <span className="text-[#e8e0d0]">5 aree</span> e{' '}
+              <span className="text-[#e8e0d0]">21 competenze</span> su{' '}
+              <span className="text-[#e8e0d0]">8 livelli di padronanza</span>.
             </p>
           </div>
         </div>
@@ -119,7 +119,7 @@ export default function DigComp() {
             >
               <div className="flex items-center gap-6">
                 <span className="num-label text-[#6b6560] w-6 shrink-0">0{area.id}</span>
-                <span className="font-serif font-bold text-xl md:text-2xl text-[#f5f0e8] group-hover:text-[#c8392b] transition-colors">
+                <span className="font-serif font-bold text-xl md:text-2xl text-[#e8e0d0] group-hover:text-[#c8392b] transition-colors">
                   {area.title}
                 </span>
               </div>
@@ -134,7 +134,7 @@ export default function DigComp() {
                   <p className="text-[#6b6560] text-sm leading-relaxed mb-6">{area.desc}</p>
                   <ul className="space-y-3">
                     {area.competenze.map((c) => (
-                      <li key={c} className="flex items-start gap-3 text-sm text-[#f5f0e8]">
+                      <li key={c} className="flex items-start gap-3 text-sm text-[#e8e0d0]">
                         <span className="text-[#c8392b] mt-0.5 shrink-0">—</span>
                         {c}
                       </li>
@@ -160,8 +160,8 @@ export default function DigComp() {
             <div key={l.num}
               className={`reveal p-4 text-center border-[#2a2a2a] ${i < 7 ? 'border-r' : ''}`}
               style={{ animationDelay: `${i * 0.05}s` }}>
-              <div className="font-serif font-black text-4xl text-[#f5f0e8] mb-2">{l.num}</div>
-              <div className="text-xs font-medium text-[#f5f0e8]">{l.label}</div>
+              <div className="font-serif font-black text-4xl text-[#e8e0d0] mb-2">{l.num}</div>
+              <div className="text-xs font-medium text-[#e8e0d0]">{l.label}</div>
               <div className="text-xs text-[#6b6560] mt-0.5">{l.sub}</div>
             </div>
           ))}

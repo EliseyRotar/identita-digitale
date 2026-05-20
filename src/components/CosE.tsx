@@ -31,9 +31,9 @@ export default function CosE() {
   }, [])
 
   return (
-    <section id="cos-e" ref={sectionRef} className="bg-[#f5f0e8] border-t border-[#d4cfc6]">
+    <section id="cos-e" ref={sectionRef} className="bg-[#e8e0d0] border-t border-[#c4bba8]">
       {/* Section header */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#d4cfc6]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#c4bba8]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-7">
             <p className="section-label mb-4 reveal">Fondamenti</p>
@@ -51,7 +51,7 @@ export default function CosE() {
       </div>
 
       {/* Pull quote */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#d4cfc6]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#c4bba8]">
         <div className="max-w-4xl reveal">
           <div className="text-[#c8392b] font-serif text-8xl leading-none mb-4 select-none">"</div>
           <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl text-[#0d0d0d] leading-tight font-normal">
@@ -61,12 +61,12 @@ export default function CosE() {
       </div>
 
       {/* Aspects grid */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#d4cfc6]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#c4bba8]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
           {aspects.map(({ num, title, desc }, i) => (
             <div
               key={num}
-              className={`reveal card-hover p-8 border-[#d4cfc6] cursor-default
+              className={`reveal card-hover p-8 border-[#c4bba8] cursor-default
                 ${i % 3 !== 2 ? 'lg:border-r' : ''}
                 ${i % 2 !== 1 ? 'md:border-r lg:border-r-0' : ''}
                 ${i < 3 ? 'border-b' : ''}
@@ -88,7 +88,7 @@ export default function CosE() {
         <p className="section-label mb-10 reveal">I Livelli dell'Identità Digitale</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
           {layers.map(({ label, sub }, i) => (
-            <div key={label} className={`reveal p-8 ${i < 3 ? 'border-r border-[#d4cfc6]' : ''}`}
+            <div key={label} className={`reveal p-8 ${i < 3 ? 'border-r border-[#c4bba8]' : ''}`}
               style={{ animationDelay: `${i * 0.1}s` }}>
               <div className="display-num mb-4 select-none">{i + 1}</div>
               <div className="font-serif font-bold text-lg text-[#0d0d0d] mb-1">{label}</div>

@@ -57,7 +57,7 @@ export default function Agenda2030() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-7">
             <p className="section-label mb-4 reveal">ONU · 2015–2030</p>
-            <h2 className="font-serif font-black leading-tight text-[#f5f0e8] reveal delay-1"
+            <h2 className="font-serif font-black leading-tight text-[#e8e0d0] reveal delay-1"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
               Agenda <span className="text-[#c8392b]">2030</span>
             </h2>
@@ -98,7 +98,7 @@ export default function Agenda2030() {
                 <span className="text-xs font-bold text-[#c8392b] tracking-wider">{link.goal}</span>
               </div>
               <div className="col-span-10 md:col-span-4">
-                <h4 className="font-serif font-bold text-lg text-[#f5f0e8] group-hover:text-[#c8392b] transition-colors">{link.title}</h4>
+                <h4 className="font-serif font-bold text-lg text-[#e8e0d0] group-hover:text-[#c8392b] transition-colors">{link.title}</h4>
               </div>
               <div className="col-span-12 md:col-span-7">
                 <p className="text-sm text-[#6b6560] leading-relaxed">{link.desc}</p>
@@ -118,7 +118,7 @@ export default function Agenda2030() {
               style={{ animationDelay: `${i * 0.08}s` }}>
               <div className="font-serif font-black text-3xl text-[#2a2a2a] w-20 shrink-0 group-hover:text-[#c8392b] transition-colors">{year}</div>
               <div className="w-px h-8 bg-[#2a2a2a] shrink-0" />
-              <div className="text-[#f5f0e8] text-sm leading-relaxed">{event}</div>
+              <div className="text-[#e8e0d0] text-sm leading-relaxed">{event}</div>
             </div>
           ))}
         </div>

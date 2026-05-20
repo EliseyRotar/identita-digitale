@@ -40,9 +40,9 @@ export default function DirittieDeveri() {
   }, [])
 
   return (
-    <section id="diritti" ref={sectionRef} className="bg-[#f5f0e8] border-t border-[#d4cfc6]">
+    <section id="diritti" ref={sectionRef} className="bg-[#dfd6c4] border-t border-[#c4bba8]">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#d4cfc6]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 border-b border-[#c4bba8]">
         <p className="section-label mb-4 reveal">Cittadinanza Digitale</p>
         <h2 className="font-serif font-black leading-tight text-[#0d0d0d] reveal delay-1"
           style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
@@ -51,10 +51,10 @@ export default function DirittieDeveri() {
       </div>
 
       {/* Two columns */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 border-b border-[#d4cfc6]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 border-b border-[#c4bba8]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
           {/* Diritti */}
-          <div className="py-12 lg:border-r border-[#d4cfc6] lg:pr-12">
+          <div className="py-12 lg:border-r border-[#c4bba8] lg:pr-12">
             <div className="flex items-center gap-4 mb-8 reveal">
               <div className="w-2 h-2 bg-[#0d0d0d]" />
               <h3 className="font-serif font-bold text-2xl text-[#0d0d0d]">I Tuoi Diritti</h3>
@@ -62,7 +62,7 @@ export default function DirittieDeveri() {
             <div className="space-y-0">
               {diritti.map((d, i) => (
                 <div key={d.title}
-                  className="reveal py-5 border-b border-[#d4cfc6] last:border-0 group cursor-default"
+                  className="reveal py-5 border-b border-[#c4bba8] last:border-0 group cursor-default"
                   style={{ animationDelay: `${i * 0.07}s` }}>
                   <div className="flex items-start gap-4">
                     <span className="num-label w-6 shrink-0 mt-0.5">{String(i + 1).padStart(2, '0')}</span>
@@ -85,7 +85,7 @@ export default function DirittieDeveri() {
             <div className="space-y-0">
               {doveri.map((d, i) => (
                 <div key={d.title}
-                  className="reveal py-5 border-b border-[#d4cfc6] last:border-0 group cursor-default"
+                  className="reveal py-5 border-b border-[#c4bba8] last:border-0 group cursor-default"
                   style={{ animationDelay: `${i * 0.07}s` }}>
                   <div className="flex items-start gap-4">
                     <span className="num-label w-6 shrink-0 mt-0.5">{String(i + 1).padStart(2, '0')}</span>
@@ -107,7 +107,7 @@ export default function DirittieDeveri() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
           {normative.map(({ label, full, year }, i) => (
             <div key={label}
-              className={`reveal p-8 card-hover cursor-default ${i < 3 ? 'border-r border-[#d4cfc6]' : ''}`}
+              className={`reveal p-8 card-hover cursor-default ${i < 3 ? 'border-r border-[#c4bba8]' : ''}`}
               style={{ animationDelay: `${i * 0.1}s` }}>
               <div className="font-serif font-black text-4xl text-[#0d0d0d] mb-3">{label}</div>
               <div className="text-xs text-[#6b6560] leading-relaxed mb-4">{full}</div>
